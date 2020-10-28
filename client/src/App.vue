@@ -1,12 +1,20 @@
 <template lang='html'>
-  <h1>Welcome to Hotel California</h1>
+  <main id='app'>
+    <h1>Welcome to Hotel California</h1>
+    <bookings-grid :bookings='bookings'></bookings-grid>
+  </main>
 </template>
 
 <script>
 import BookingService from './services/BookingService';
-
+import BookingsGrid from './components/BookingsGrid';
 export default {
   name: 'app',
+
+  components: {
+      'bookings-grid': BookingsGrid
+  },
+
   
   data() {
     return {
