@@ -6,17 +6,22 @@ db.dropDatabase();
 db.bookings.insertMany([
     {
         name: "Jim Jardashian",
-        email: "JJ@Jardashian.com",
+        email: "jj@jardashian.com",
         checkedIn: false
     },
     {
         name: "Eddie Vedder",
-        email: "Eddie@pearljam.com",
+        email: "eddie@pearljam.com",
         checkedIn: false 
     },
     {
         name: "Diego Maradona",
         email: "diego@coke.com",
         checkedIn: false
+    },
+    {
+        name: "Graham Grahamson",
+        email: "grahamgrahamson@grahamgrahamson.com",
+        checkedIn: true
     }
 ]);
