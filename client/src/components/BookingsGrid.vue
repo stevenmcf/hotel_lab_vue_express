@@ -1,6 +1,7 @@
 <template lang='html'>
 <div id="bookingsGrid">
-  <h1>Bookings List</h1>
+  <h1>Current Bookings :</h1>
+  <booking v-for="booking, index in bookings" :key="index" :booking="booking" />
   </div>
 </template>
 
