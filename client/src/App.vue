@@ -1,21 +1,25 @@
 <template lang='html'>
   <main id='app'>
     <h1>Welcome to Hotel California</h1>
+    <bookings-form/>
     <bookings-grid :bookings='bookings'></bookings-grid>
   </main>
 </template>
 
 <script>
+import { eventBus } from './main';
 import BookingService from './services/BookingService';
 import BookingsGrid from './components/BookingsGrid';
+import BookingsForm from './components/BookingsForm';
+
 export default {
   name: 'app',
 
   components: {
-      'bookings-grid': BookingsGrid
+      'bookings-grid': BookingsGrid,
+      'bookings-form': BookingsForm
   },
 
-  
   data() {
     return {
       bookings: []
@@ -24,6 +28,19 @@ export default {
 
   mounted() {
     this.fetchBookings();
+
+    eventBus.$on('submit-booking', payload => {
+        BookingService.postBooking(payload)
+        .then(booking => this.bookings.push(booking));
+    });
+
+    eventBus.$on('delete-booking', id => {
+        BookingService.deleteBooking(id)
+        .then(() => {
+            const index = this.bookings.findIndex(booking => booking._id === id);
+            this.bookings.splice(index, 1);
+        });
+    });
   },
 
   methods: {
@@ -33,7 +50,6 @@ export default {
     }
   }
 }
-
 
 </script>
 
