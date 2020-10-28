@@ -1,7 +1,13 @@
 <template lang='html'>
   <main id='app'>
-    <h1>Welcome to Hotel California</h1>
-    <bookings-form/>
+      <section id="booking-container"> 
+        <bookings-form />
+      <header>
+        <h1>Welcome to Hotel California</h1>
+      </header>
+      </section>
+      
+    <hr>
     <bookings-grid :bookings='bookings'></bookings-grid>
   </main>
 </template>
@@ -56,7 +62,28 @@ export default {
 <style scoped>
 
 #app {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#booking-container {
+    display: grid;
+    grid-template-areas: 
+    'form header';
+    grid-template-columns: 0.75fr 2.25fr;
+ 
+}
+
+
+header {
+    grid-area: header;
+    font-size: 40pt;
+    background-image: url('./assets/house-589997_1280.jpg');
+    background-size: ;
+    height: 90vh;
 }
 
 

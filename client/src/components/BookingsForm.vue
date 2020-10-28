@@ -56,6 +56,27 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+#bookings-form {
+     border: 0px 2px 0px 0px solid slategray;
+     background-color: slategray;
+     padding-left: 10px;
+     text-align: center;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    background-color: green;
+}
+
+#bookings-form > h2 {
+    text-align: center;
+}
 
 </style>
